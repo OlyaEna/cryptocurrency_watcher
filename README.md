@@ -1,5 +1,6 @@
 <h1 align="center">CryptoСurrency watcher</h1> 
 Выполнение:
+
 - Просмотр списка доступных криптовалют
 
 ![imag](https://github.com/OlyaEna/cryptocurrency_watcher/blob/master/src/main/resources/img/all.JPG)
