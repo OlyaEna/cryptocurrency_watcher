@@ -15,10 +15,12 @@ public interface CurrencyRepository extends JpaRepository<Currency, Long> {
     @Query(value = "select c from Currency c group by c.id")
     List<Currency> getAllCurrencies();
 
-    @Query(value = "select c from Currency c where c.createdAt=(select max(createdAt) from Currency where id IN(:id))")
-    List<Currency> findCurrentCurrency(@Param("id") Long id);
-//    @Query(value = "select c from Currency c where c.createdAt=(select max(c.createdAt) from Currency) and c.id=:id")
+    @Query(value = "select c from Currency c where c.createdAt=(select max(createdAt) from Currency where symbol=:symbol)")
+    Currency findCurrentCurrency(String symbol);
 
-    @Query(value = "select c from Currency c where c.createdAt=(select max(createdAt) from Currency)")
-    Currency findCurrency();
+    @Query(value = "select c.price_usd from Currency c where c.createdAt=(select max(createdAt) from Currency where symbol=:symbol)")
+    Double findPriceBySymbol(String symbol);
+    @Query(value = "select distinct c.symbol from Currency c")
+    List<String> findAllSymbols();
+
 }

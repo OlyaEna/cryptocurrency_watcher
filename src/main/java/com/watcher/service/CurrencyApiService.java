@@ -1,6 +1,6 @@
 package com.watcher.service;
 
-import com.watcher.dto.CurrencyApiResponseDto;
+import com.watcher.dto.currency.CurrencyApiResponseDto;
 
 import java.util.List;
 

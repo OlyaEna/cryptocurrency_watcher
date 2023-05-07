@@ -1,7 +1,6 @@
 package com.watcher.service.mapper;
 
-import com.watcher.dto.CurrencyActualDto;
-import com.watcher.dto.CurrencyListDto;
+import com.watcher.dto.currency.CurrencyActualDto;
 import com.watcher.model.entity.Currency;
 import com.watcher.model.repository.CurrencyRepository;
 import org.modelmapper.ModelMapper;
@@ -11,12 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.Objects;
 
 @Component
 @AllArgsConstructor

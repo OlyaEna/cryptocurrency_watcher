@@ -1,6 +1,6 @@
 package com.watcher.service.impl;
 
-import com.watcher.dto.CurrencyApiResponseDto;
+import com.watcher.dto.currency.CurrencyApiResponseDto;
 import com.watcher.service.CurrencyApiService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;

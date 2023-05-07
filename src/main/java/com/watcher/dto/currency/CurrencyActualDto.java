@@ -1,4 +1,4 @@
-package com.watcher.dto;
+package com.watcher.dto.currency;
 
 import lombok.Getter;
 import lombok.Setter;

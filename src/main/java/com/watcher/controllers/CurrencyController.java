@@ -1,8 +1,7 @@
 package com.watcher.controllers;
 
-import com.watcher.dto.CurrencyActualDto;
-import com.watcher.dto.CurrencyListDto;
-import com.watcher.model.entity.Currency;
+import com.watcher.dto.currency.CurrencyActualDto;
+import com.watcher.dto.currency.CurrencyListDto;
 import com.watcher.model.repository.CurrencyRepository;
 import com.watcher.service.CurrencyService;
 import lombok.AllArgsConstructor;
@@ -17,7 +16,6 @@ import java.util.List;
 @RestController
 public class CurrencyController {
     private final CurrencyService currencyService;
-    private final CurrencyRepository currencyRepository;
 
     /**
      * Просмотр списка доступных криптовалют
@@ -30,21 +28,13 @@ public class CurrencyController {
 
     /**
      * Просмотр актуальной цены для указаной криптовалюты
+     * по коду криптовалюты (символ)
      */
 
-//    @GetMapping(path = "/current/{id}")
-//    public CurrencyActualDto findCurrentCurrency(@PathVariable Long id){
-//        return currencyService.findACurrentCurrency(id);
-//    }
-
-    @GetMapping(path = "/current/{id}")
-    public List<Currency> findCurrentCurrency(@PathVariable Long id){
-        return currencyRepository.findCurrentCurrency(id);
+    @GetMapping(path = "/current/{symbol}")
+    public CurrencyActualDto findCurrentCurrency(@PathVariable String symbol){
+        return currencyService.findCurrentCurrency(symbol);
     }
 
 
-    @GetMapping(path = "/current")
-    public Currency findCurrentCurrency(){
-        return currencyRepository.findCurrency();
-    }
 }

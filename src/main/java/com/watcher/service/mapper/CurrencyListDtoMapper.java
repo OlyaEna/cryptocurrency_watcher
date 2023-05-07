@@ -1,6 +1,6 @@
 package com.watcher.service.mapper;
 
-import com.watcher.dto.CurrencyListDto;
+import com.watcher.dto.currency.CurrencyListDto;
 import com.watcher.model.entity.Currency;
 import com.watcher.model.repository.CurrencyRepository;
 import lombok.AllArgsConstructor;

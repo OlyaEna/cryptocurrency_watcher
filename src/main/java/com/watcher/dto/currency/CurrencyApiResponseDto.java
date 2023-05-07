@@ -1,4 +1,4 @@
-package com.watcher.dto;
+package com.watcher.dto.currency;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
