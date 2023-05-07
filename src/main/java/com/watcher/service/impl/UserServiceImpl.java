@@ -14,7 +14,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -26,19 +25,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUserToDB(UserRequest userRequest) {
-        List<String> symbols = currencyRepository.findAllSymbols();
         if (userRequest != null) {
             User user = userRepository.findUserByUsername(userRequest.getUsername());
+            List<String> symbols = currencyRepository.findAllSymbols();
             if (user == null) {
                 user = new User();
                 user.setUsername(userRequest.getUsername());
-                for (String symbol : symbols) {
-                    System.out.println(symbol);
-                    if (symbol.equals(userRequest.getSymbol())) {
-                        user.setSymbol(userRequest.getSymbol());
-                    } else {
-                        throw new NoSuchSymbolException("There are no such symbol. Try again.");
-                    }
+                if (symbols.contains(userRequest.getSymbol())) {
+                    user.setSymbol(userRequest.getSymbol());
+                } else {
+                    throw new NoSuchSymbolException("There are no such symbol. Try again.");
                 }
                 user.setPrice_usd(currencyRepository.findPriceBySymbol(userRequest.getSymbol()));
                 userRepository.save(user);

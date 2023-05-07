@@ -23,12 +23,4 @@ public class CurrencyResponseMapper {
         return Objects.isNull(dto) ? null : modelMapper.map(dto, Currency.class);
     }
 
-    public CurrencyApiResponseDto toDto(Currency entity) {
-        return Objects.isNull(entity) ? null : modelMapper.map(entity, CurrencyApiResponseDto.class);
-    }
-
-    public List<CurrencyApiResponseDto> listToDto(List<Currency> entity) {
-        return Objects.isNull(entity) ? null : modelMapper.map(entity, new TypeToken<List<CurrencyApiResponseDto>>() {
-        }.getType());
-    }
 }

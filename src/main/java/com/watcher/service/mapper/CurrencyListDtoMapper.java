@@ -19,14 +19,6 @@ public class CurrencyListDtoMapper {
     private ModelMapper modelMapper;
     private final CurrencyRepository currencyRepository;
 
-    public Currency toEntity(CurrencyListDto dto) {
-        return Objects.isNull(dto) ? null : modelMapper.map(dto, Currency.class);
-    }
-
-    public CurrencyListDto toDto(Currency entity) {
-        return Objects.isNull(entity) ? null : modelMapper.map(entity, CurrencyListDto.class);
-    }
-
     public List<CurrencyListDto> listToDto(List<Currency> entity) {
         return Objects.isNull(entity) ? null : modelMapper.map(entity, new TypeToken<List<CurrencyListDto>>() {
         }.getType());
